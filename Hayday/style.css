@@ -1,0 +1,304 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCFAED; 
+    max-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+
+nav {
+
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+  
+  /* By Dominik Biedebach @domobch */
+  
+  nav ul {
+    list-style: none;
+    text-align: center;
+  }
+  nav ul li {
+    display: inline;
+  }
+  nav ul li a {
+    display: inline;
+    padding: 15px;
+    text-decoration: none;
+    color: #a59b70c3;
+    font-weight: 800;
+    text-transform: uppercase;
+
+
+  }
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all .5s;
+  }
+  nav ul li a:hover {
+    color: #75663f;
+    
+  }
+  /* Stroke Animation Header */
+
+  nav.stroke ul li a,
+  nav.fill ul li a {
+    position: relative;
+    display: inline-block; /* Add this to ensure the pseudo-elements respect width and height */
+  }
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+
+  height: 5px;
+  background-color: #948c62;
+  
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 4s;
+}
+
+/* End of animation */
+ 
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px 0;
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: -20px; /* Adjust this value as needed */
+    
+}
+
+
+.logo img {
+    max-width: 200px;
+    margin-bottom: -50px;
+}
+
+a {
+    color:rgb(169, 133, 35);
+}
+
+
+
+/* Main content styling */
+main {
+    position: relative;
+    z-index: 1; /* Bring the main content to the front */
+    background-color: #eae8d3; /* Main content background color */
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    max-width: 800px; /* Adjust the max-width as needed */
+    
+    
+}
+
+h2 {
+    padding: 5px;
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.big-image-link {
+    max-width: 400px;
+    margin-top: 90px;
+    background-color: rgb(244, 244, 244);
+    margin: 90px auto ;
+    max-width: 390px; /* Adjust the max-width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.big-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    
+}
+
+.big-image-link img:hover {
+    width: 100%;
+    filter: brightness(60%);
+    height: auto;
+    display: block;
+    
+}
+
+.big-image-link h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer p {
+    margin: 5px;
+    color: #666;
+    font-weight: bolder;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .big-image-link {
+        max-width: 100%;
+    }
+}
+
+
+#clouds{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the clouds to the back */
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
+
+/*Time to finalise the cloud shape*/
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+	position: relative; 
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+/*Time to animate*/
+.x1 {
+	-webkit-animation: moveclouds 15s linear infinite;
+	-moz-animation: moveclouds 15s linear infinite;
+	-o-animation: moveclouds 15s linear infinite;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+	left: 200px;
+	
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; /*opacity proportional to the size*/
+	
+	/*Speed will also be proportional to the size and opacity*/
+	/*More the speed. Less the time in 's' = seconds*/
+	-webkit-animation: moveclouds 25s linear infinite;
+	-moz-animation: moveclouds 25s linear infinite;
+	-o-animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+	left: -250px; top: -200px;
+	
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+	left: 470px; top: -250px;
+	
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 18s linear infinite;
+	-moz-animation: moveclouds 18s linear infinite;
+	-o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+	left: -150px; top: -150px;
+	
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
